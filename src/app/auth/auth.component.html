@@ -1,0 +1,36 @@
+<h1> {{isLoginMode?'Sign-In':'Register'}}</h1><br><br>
+<div class="container">
+ <div class="col-sm-8">
+
+   <div class="alert alert-danger" *ngIf="error" >
+     {{message}}
+   </div>
+   <div *ngIf="isLoading" style="text-align:center">
+     <app-loading-spinner></app-loading-spinner>
+   </div>
+    
+  <form #authForm="ngForm"  (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading">
+    
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" ngModel required>
+  
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" ngModel required >
+
+      <label for="repsw"><b>Re-password</b></label>
+      <input type="password" placeholder="Enter Password again" name="psw" id="repsw" ngModel required>
+
+      <hr>
+      <button type="submit" class="btn btn-primary" [disabled]="!authForm.valid">{{isLoginMode ? 'Login' : 'Signup'}}</button>
+    
+    <div class="container signin"><br>
+      <p>{{isLoginMode? 'dont have an account?' : 'Already have an account?' }} <a style="cursor: pointer;" (click)="onSwitchMode()">{{isLoginMode? 'register':'login'}}</a>.</p>
+    </div>
+  </form>
+
+</div>
+
+</div>
+<p-toast position="top-center"></p-toast>
+
+

@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+                 <div class="navbar-header">
+                        <a class="navbar-brand">Recipe book</a>
+                    </div>
+            <div class="navbar-default">
+                <ul class="nav navbar-nav">
+                    <li routerLinkActive="active"><a routerLink="/recipes">Recipe</a></li>
+                    <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping list</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li routerLinkActive="active"><a routerLink="/shopping-list">
+                        <i class="fa fa-shopping-cart" style="font-size:24px;color:blanchedalmond"></i>
+                        <span class='badge badge-warning' id='lblCartCount'>{{cartItem.length}}</span>
+                    </a></li>
+                    <li routerLinkActive="active" *ngIf="!login" ><a routerLink="/auth" style = "cursor:pointer;">Login</a></li>
+                    <li routerLinkActive="active" *ngIf="login" ><a style = "cursor:pointer;" (click)="logout()">Logout</a></li>
+                    <li class="dropdown" appDropdown>
+                        <a  class="dropdown-toggle" role="button">manage<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a style="cursor: pointer;" (click)="onSaveData()">save data</a></li>
+                            <li><a style="cursor:pointer"(click)="onFetchData()">fetch data</a></li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+            </div>
+    </nav>
+    <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
