@@ -39,9 +39,9 @@
     </ng-template> -->
     <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
 
-    <p-sidebar [(visible)]="visibleSidebar2" styleClass="p-sidebar-md" position="right" [baseZIndex]="10000">
-        <h1 style="font-weight:normal">Right Sidebar</h1>
+    <p-sidebar [(visible)]="visibleSidebar2"  [fullScreen]="false" styleClass="p-sidebar-lg" position="right" [baseZIndex]="10000">
+        <h1 style="font-weight:normal">Shopping Cart</h1>
         <p-button type="button" (click)="visibleSidebar2 = false" label="Save" styleClass="p-button-success"></p-button>
         <p-button type="button" (click)="visibleSidebar2 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
-        <app-mini-cart></app-mini-cart> 
-      </p-sidebar>
+        <!-- <app-mini-cart></app-mini-cart>  -->
+    </p-sidebar>
