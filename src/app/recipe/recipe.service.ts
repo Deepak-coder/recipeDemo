@@ -37,7 +37,7 @@ export class RecipeService{
   //     ];
 
      private recipes:Recipe[] = [];
-      constructor(private slService:ShoppingListService, private messageService:MessageService){}
+      constructor(private slService:ShoppingListService){}
 
       setRecipe(recipe:Recipe[]){
         this.recipes = recipe;
@@ -50,7 +50,13 @@ export class RecipeService{
       getRecipe(index:number){
         return this.recipes[index];
       }
+      
+      addItemsToShoppingList(recipe:Recipe){
+        this.slService.addItem(recipe);
+       
+       }
 
+      //  this needs to be deleted
       addIngredientsToShoppingList(ingredients:Ingredient[]){
        this.slService.addIngredients(ingredients);
       }

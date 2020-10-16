@@ -24,6 +24,9 @@ import { MessageService } from 'primeng/api';
 import {ToastModule} from 'primeng/toast'
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {ConfirmationService} from 'primeng/api';
+import { OverlayPanelModule } from 'primeng/overlaypanel';
+import { SidebarModule } from 'primeng/sidebar';
+import { MiniCartComponent } from './header/mini-cart/mini-cart.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,8 @@ import {ConfirmationService} from 'primeng/api';
     RecipeStartComponent,
     RecipeEditComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    MiniCartComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,9 @@ import {ConfirmationService} from 'primeng/api';
     HttpClientModule,
     BrowserAnimationsModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    OverlayPanelModule,
+    SidebarModule,
   ],
   providers: [DataStorageService, MessageService , ConfirmationService],
   bootstrap: [AppComponent]

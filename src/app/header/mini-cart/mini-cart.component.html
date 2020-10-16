@@ -1,0 +1,42 @@
+  <div class="shopping-cart">
+    <div class="shopping-cart-header">
+      <i class="fa fa-shopping-cart" style="font-size:24px;color:rgb(249, 255, 249)"></i>
+      <span class ="badge badge-warning" id ="lblCartCount">{{shoppingCart.totalItems}}</span>
+      <!-- <i class="fa fa-shopping-cart cart-icon"></i><span class="badge">3</span> -->
+      <div class="shopping-cart-total">
+        <span class="lighter-text"><strong>Total:</strong></span>&nbsp;
+        <span class="main-color-text"><strong>{{shoppingCart.totalAmount}} $</strong></span>
+      </div>
+    </div>
+  
+     <ul class="shopping-cart-items">
+      <div class="custom-scrollbar-css p-2">
+       <div *ngFor="let item of shoppingCart.cartItems; let i = index">
+          <li class="clearfix">
+              <img  class="col-sm-6 img-responsive" src="{{item.imagePath}}" alt="item1"/>
+              <span class="item-name">{{item.name}}</span><br>
+              <span class="item-price">$10</span><br>
+              <span class="item-quantity">Quantity: 
+               <i class="fa fa-shopping-cart" style="font-size:20px;color:rgb(241, 231, 231)"></i>
+               <span class ="badge badge-warning" id ="lblCartCount">{{item.cart.quantity}}</span>
+              </span>&nbsp;&nbsp;&nbsp;&nbsp;<br>
+              <!-- <input  type="number" class="col-sm-2"  min="0" max="100" value = "0"> -->
+              <span><i class="fa fa-remove" style="font-size:24px;color:red" (click)="onDeleteItem(i)"></i></span>
+            </li>
+         </div> 
+  </div>
+  </ul><br><br>
+  <div *ngIf="shoppingCart.totalItems !=0">
+      <button class="btn btn-default btn-lg button1" (click)="navigateTo('shopping-cart')">View Cart</button>&nbsp;
+      <button class="btn btn-default btn-lg button2" (click)="navigateTo('checkout')">Checkout</button>
+  </div>
+     
+     <div class="alert alert-dark" *ngIf="shoppingCart.totalItems == 0" role="alert">
+      <strong>
+       Cart is Empty
+      </strong>
+     </div>
+     </div>
+
+
+

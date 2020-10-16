@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.scss'],
   providers:[RecipeService]
 })
 export class HeaderComponent implements OnInit {
   // msgs: Message[] = [];
   login:boolean = false;
-  cartItem:Ingredient[];
+  cartLength:number = 0;
 
  @Output() featureSelected = new EventEmitter<string>();   
   constructor( private dataService:DataStorageService , private RecipeService:RecipeService , private slService:ShoppingListService , 
@@ -30,11 +30,13 @@ export class HeaderComponent implements OnInit {
      }
      else
       this.login = false;
-
-      this.cartItem = this.slService.getIngredients();
-      this.slService.ingredientChanged.subscribe((response)=>{
-      this.cartItem = response;
+      
+      let cart = this.slService.getShoppingCart();
+      this.cartLength = cart[0].totalItems;
+      this.slService.cartChanged.subscribe((cart:any)=>{
+            this.cartLength = cart[0].totalItems;
     })
+    
   }
  
   onSaveData(){

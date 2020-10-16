@@ -6,13 +6,16 @@
             <div class="navbar-default">
                 <ul class="nav navbar-nav">
                     <li routerLinkActive="active"><a routerLink="/recipes">Recipe</a></li>
-                    <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping list</a></li>
+                    <!-- <li routerLinkActive="active"><a routerLink="/shopping-list">Shopping list</a></li> -->
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li routerLinkActive="active"><a routerLink="/shopping-list">
+            
+                    <li routerLinkActive="active"><a (click)="op.toggle($event)" style="cursor:pointer;">
+                        <!-- <p-button [label]="'mini cart'" icon="fa fa-shopping-cart" (click)="op.toggle($event)"></p-button> -->
                         <i class="fa fa-shopping-cart" style="font-size:24px;color:blanchedalmond"></i>
-                        <span class='badge badge-warning' id='lblCartCount'>{{cartItem.length}}</span>
+                        <span class='badge badge-warning' id='lblCartCount'>{{cartLength}}</span>
                     </a></li>
+                    <li><p-button type="button" (click)="visibleSidebar2 = true" icon="pi pi-arrow-left"></p-button></li>
                     <li routerLinkActive="active" *ngIf="!login" ><a routerLink="/auth" style = "cursor:pointer;">Login</a></li>
                     <li routerLinkActive="active" *ngIf="login" ><a style = "cursor:pointer;" (click)="logout()">Logout</a></li>
                     <li class="dropdown" appDropdown>
@@ -27,4 +30,18 @@
             </div>
             </div>
     </nav>
+    <p-overlayPanel #op  [showCloseIcon]="true">
+           
+     <app-mini-cart></app-mini-cart>   
+    </p-overlayPanel>
+    <!-- <ng-template #op>
+        Content
+    </ng-template> -->
     <p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>
+
+    <p-sidebar [(visible)]="visibleSidebar2" styleClass="p-sidebar-md" position="right" [baseZIndex]="10000">
+        <h1 style="font-weight:normal">Right Sidebar</h1>
+        <p-button type="button" (click)="visibleSidebar2 = false" label="Save" styleClass="p-button-success"></p-button>
+        <p-button type="button" (click)="visibleSidebar2 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
+        <app-mini-cart></app-mini-cart> 
+      </p-sidebar>

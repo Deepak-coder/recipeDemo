@@ -1,5 +1,5 @@
-<app-shopping-edit></app-shopping-edit><br><hr>
-<strong>
+<!-- <app-shopping-edit></app-shopping-edit><br><hr> -->
+<!-- <strong>
 <ul>
     <a 
     class="list-group-item" 
@@ -8,4 +8,60 @@
     (click)="onEditItem(i)"
     >{{ingredient.name}}({{ingredient.amount}})</a>
 </ul>
-</strong>
+</strong> -->
+
+<div class="container">
+    <div class="col-sm-8">
+        <h2>Check the List</h2><br><br><br>
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody *ngFor="let item of shoppingCart.cartItems; let i = index">
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-4 hidden-xs"><img src="{{item.imagePath}}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{item.name}}</h4>
+										<p>{{item.discription}}</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price"> $ {{item.price}}</td>
+							<td data-th="Quantity">
+								<input type="number" #quantity class="form-control text-center" value = "{{item.cart.quantity}}" (change)="onChangeQuantity(quantity.value,i)" min="0">
+							</td>
+							<td data-th="Subtotal" class="text-center">$ {{item.cart.quantity * item.price}}</td>
+							<td class="actions" data-th="">
+								<!-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> -->
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o outline" (click)="deleteItem(i)"></i></button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<!-- <tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr> -->
+						<tr>
+							<td></td>
+							<td colspan="2" class="hidden-xs"><strong>Total items &nbsp;{{shoppingCart.totalItems}}</strong></td>
+							<td class="hidden-xs text-center"><strong>Total $ &nbsp;{{shoppingCart.totalAmount}}</strong></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td><a  class="btn btn-warning" (click)="navigateTo()"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"></td>
+							<td><a  class="btn btn-success btn-block" (click)="navigateTo()">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table><br><br><br><br><br><br>
+</div></div>
+<p-toast position="top-center"></p-toast>

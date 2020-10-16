@@ -12,7 +12,8 @@ import { NotificationService } from 'src/app/notification.service';
 export class RecipeDetailsComponent implements OnInit {
   recipe:Recipe;
   id:number;
-  constructor(private recipeService:RecipeService,private route:ActivatedRoute,private router:Router, private notification:NotificationService) { }
+  constructor(private recipeService:RecipeService,private route:ActivatedRoute,private router:Router, 
+    private notification:NotificationService ) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -24,9 +25,12 @@ export class RecipeDetailsComponent implements OnInit {
   }
 
   onAddToShoppingList(){
-    this.recipeService.addIngredientsToShoppingList(this.recipe.ingredients);
-    this.notification.showSuccess('successfully added to the cart...!!!');
-
+    if(this.recipe.cart.inCart == false){
+      this.recipeService.addItemsToShoppingList(this.recipe);
+      this.notification.showSuccess('successfully added to the cart...!!!');
+    }
+    else
+    this.notification.showWarning('already in cart');
   }
 
   onEditRecipe(){

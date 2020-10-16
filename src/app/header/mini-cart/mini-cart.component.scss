@@ -1,0 +1,155 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
+
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css);
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.lighter-text {
+  color: #15171a;
+}
+
+.main-color-text {
+  color:whitesmoke;
+}
+
+.badge {
+    background-color: #6394F8;
+    border-radius: 10px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 1;
+    padding: 3px 7px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.shopping-cart {
+  margin: 20px 0;
+  float: right;
+  background: rgb(116, 192, 182);
+  width: 300px;
+  position: relative;
+  border-radius: 3px;
+  padding: 20px;
+}  
+  .shopping-cart-header {
+    border-bottom: 1px solid #E8E8E8;
+    padding-bottom: 15px;
+  } 
+    .shopping-cart-total {
+      float: right;
+    }
+  
+  .shopping-cart-items {
+    
+    padding-top: 20px;
+
+     img {
+      float: left;
+      margin-right: 12px;
+    }
+    
+     .item-name {
+      display: block;
+      padding-top: 10px;
+      font-size: 16px;
+    }
+    
+     .item-price {
+      color: whitesmoke;
+      margin-right: 8px;
+    }
+    
+     .item-quantity {
+      color: #090d16;
+    } 
+  }
+   
+
+.shopping-cart:after {
+	bottom: 100%;
+	left: 89%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: white;
+	border-width: 8px;
+	margin-left: -8px;
+}
+
+.cart-icon {
+  color: #7f8081;
+  font-size: 500px;
+  margin-right: 7px;
+  float: left;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.custom-scrollbar-js,
+.custom-scrollbar-css {
+  height: 200px;
+}
+
+
+/* Custom Scrollbar using CSS */
+.custom-scrollbar-css {
+  overflow-y: auto;
+}
+
+/* scrollbar width */
+.custom-scrollbar-css::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* scrollbar track */
+.custom-scrollbar-css::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* scrollbar handle */
+.custom-scrollbar-css::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+    background-color: #00d2ff;
+    background-image: linear-gradient(to top, #00d2ff 0%, #3a7bd5 100%);
+  }
+
+  .button1 {
+background: whitesmoke;
+border-color:#74748d;
+border-width: 1px;
+color:#74748d;
+font-size: 16px;
+outline-style: none;
+  
+  &:hover {
+    background:#71718a;
+    color:whitesmoke;
+  }
+}
+
+.button2 {
+    background: whitesmoke;
+    border-color:lighten(#04bd04, 3%);
+    border-width: 1px;
+    color:lighten(#04bd04, 3%);
+    font-size: 16px;
+    outline-style: none;
+      
+      &:hover {
+        background: lighten(#04bd04, 3%);
+        color: whitesmoke;
+      }
+    }

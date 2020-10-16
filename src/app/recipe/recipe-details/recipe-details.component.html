@@ -10,7 +10,8 @@
 </div>
 <div class="row">
     <div class="col-xs-12">
-        <div class="btn-group"  appDropdown >
+
+        <!-- <div class="btn-group"  appDropdown >
           <button type="button"
              class="btn btn-primary dropdown-toggle"
             >
@@ -29,7 +30,22 @@
             </li>
               <li><a (click)="onDeleteRecipe()" style="cursor: pointer">delete recipe</a></li>
           </ul>
-      </div>
+      </div> -->
+
+
+      <div class="btn-group">
+        <button type="button"   class="btn btn-primary" 
+        (click)="onAddToShoppingList()"
+         >
+          {{recipe.cart.inCart?'added':'add to cart'}}
+            <i class="fa fa-shopping-cart" 
+            *ngIf="recipe.cart.inCart"
+            style="font-size:20px;color:rgb(241, 231, 231)">
+              <span class ="badge badge-warning" id ="lblCartCount">{{recipe.cart.quantity}}</span>
+            </i>           
+        </button>
+    </div><br>
+
   </div>
 </div>
 <div class="row">

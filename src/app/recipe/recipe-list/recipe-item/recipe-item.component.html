@@ -28,4 +28,9 @@ routerLinkActive="active"
     <p class="card-text">{{recipe.discription}}</p>
   </div>
 </div>
+<i class="fa fa-shopping-cart" 
+ *ngIf="recipe.cart.inCart"
+  style="font-size:20px;color:rgb(20, 18, 18)">
+ <span class ="badge badge-warning" id ="lblCartCount">{{recipe.cart.quantity}}</span>
+ </i>
 </a><br>
